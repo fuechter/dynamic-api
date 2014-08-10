@@ -1,0 +1,25 @@
+{
+	"name": "dynamic-api",
+	"description": "An API to import fragmented files within other",
+	"homepage": "https://github.com/alexandref93/dynamic-api",
+	"repository": "alexandref93/dynamic-api",
+	"author": "Carlos Alexandre Fuechter <alexandref94@gmail.com> (http://fuechter.com.br)",
+	"tags": [
+		"file",
+		"dynamic",
+		"import",
+		"fragment"
+	],
+	"version": "1.0.0",
+	"dependencies": {
+		"underscore": "~1.6.0",
+		"defaults": "~1.0.0"
+	},
+	"engines": {
+    	"node": ">= 0.9"
+	},
+	"licenses": [{
+		"type": "MIT",
+		"url": "https://github.com/alexandref93/dynamic-api/blob/master/LICENSE"
+	}]	
+}
