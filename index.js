@@ -71,5 +71,6 @@ var processFile = function(p, contents) {
 
 module.exports = function(path, contents, opt) {
     options = defaults(opt, options);
+    pathsImport = [];
     return processFile(path, contents);
 };
