@@ -10,7 +10,7 @@
 		"import",
 		"fragment"
 	],
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"dependencies": {
 		"underscore": "~1.6.0",
 		"defaults": "~1.0.0"
