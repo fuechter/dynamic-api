@@ -3,26 +3,13 @@ var path = require('path');
 var underscore = require('underscore');
 var defaults = require('defaults');
 
+var lib_ext = require('./lib/ext');
+
 var pathsImport = [];
 var options = {
     paths: [],
     ignoreRepeated: true
 }
-
-var patterns = {
-    html: /[<][!][-]{2}.?import[(]?.?["'](.*)["'].?[)]?.?[-]{2}[>]/g,
-    js: /([\/]{2}|[\/][*]).?import.?[(]?.?["'](.*)["'].?[)]?[;]?.*?(\n[*][\/])?/g,
-    css: /([\/]{2}|[\/][*]).?import[(]?.?["'](.*)["'].?[)]?([*][\/])?/g,
-    yaml: /([ \t]*)[-][ ]?import[:][ ]*["'](.*)["']/g,
-    yml: /([ \t]*)[-][ ]?import[:][ ]*["'](.*)["']/g,
-    json: /([ \t]*)[-][ ]?import[:][ ]*["'](.*)["']/g,
-    any: /[!].?import[(]?.?["'](.*)["'].?[)]/g
-};
-
-var getExtension = function(p) {
-    var ext = path.extname(p).substr(1).toLowerCase();
-    return !patterns.hasOwnProperty(ext) ? 'any' : ext;
-};
 
 var readAlternativePath = function(paths, file) {
     paths = path.join(paths, file);
@@ -40,8 +27,8 @@ var readAlternativePath = function(paths, file) {
 };
 
 var getImport = function(ext, contents, dirname) {
-    patterns[ext].lastIndex = 0;
-    var match = patterns[ext].exec(contents);
+    lib_ext.allExt[ext].lastIndex = 0;
+    var match = lib_ext[ext].exec(contents);
     return match ? { matchText: match[0], index: match.index, path: readAlternativePath(dirname, match[(ext === 'html' || ext === 'any' ? 1 : 2 )]), match: match} : undefined;
 };
 
@@ -50,13 +37,13 @@ var readFile = function(_import) {
 };
 
 var processMatch = function( _import, contents, hasAlready) {
-    return contents.substring(0,_import.index) + 
-    (options.ignoreRepeated && hasAlready ? '' : readFile(_import)) + 
+    return contents.substring(0,_import.index) +
+    (options.ignoreRepeated && hasAlready ? '' : readFile(_import)) +
     contents.substring(_import.index+_import.matchText.length);
 };
 
 var processFile = function(p, contents) {
-    var ext = getExtension(p);
+    var ext = lib_ext.getExt(p);
     var processed = contents, _import;
     while(_import = getImport(ext, processed, path.dirname(p))) {
         if (!underscore.contains(pathsImport, _import.path)) {
