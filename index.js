@@ -5,18 +5,13 @@ var defaults = require('defaults');
 
 var lib_ext = require('./lib/ext');
 var lib_read = require('./lib/read');
+var lib_import = require('./lib/import');
 
 var pathsImport = [];
 var options = {
     paths: [],
     ignoreRepeated: true
 }
-
-var getImport = function(ext, contents, dirname) {
-    lib_ext.allExt[ext].lastIndex = 0;
-    var match = lib_ext[ext].exec(contents);
-    return match ? { matchText: match[0], index: match.index, path: lib_read.readAlternativePath(dirname, match[(ext === 'html' || ext === 'any' ? 1 : 2 )]), match: match} : undefined;
-};
 
 var processMatch = function( _import, contents, hasAlready) {
     return contents.substring(0,_import.index) +
@@ -27,7 +22,7 @@ var processMatch = function( _import, contents, hasAlready) {
 var processFile = function(p, contents) {
     var ext = lib_ext.getExt(p);
     var processed = contents, _import;
-    while(_import = getImport(ext, processed, path.dirname(p))) {
+    while(_import = lib_import(ext, processed, path.dirname(p))) {
         if (!underscore.contains(pathsImport, _import.path)) {
             pathsImport.push(_import.path);
             processed = processMatch(_import, processed);
