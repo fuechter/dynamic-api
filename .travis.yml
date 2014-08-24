@@ -4,4 +4,6 @@ node_js:
   - "0.10"
 install:
   - "npm install"
+before_script:
+  - "npm i -g jasmine-node"
 script: npm test
