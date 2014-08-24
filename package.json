@@ -15,11 +15,14 @@
 		"underscore": "~1.6.0",
 		"defaults": "~1.0.0"
 	},
+	"peerDependencies": {
+		"jasmine-node": "~1.14.5"
+	},
 	"engines": {
     	"node": ">= 0.9"
 	},
 	"licenses": [{
 		"type": "MIT",
 		"url": "https://github.com/alexandref93/dynamic-api/blob/master/LICENSE"
-	}]	
+	}]
 }
