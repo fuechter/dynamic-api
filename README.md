@@ -1,7 +1,7 @@
 # Dynamic-api
 An API to import fragmented files within other.
 
-[![Build Status](https://img.shields.io/travis/alenxadref93/dynamic-api/master.svg)](https://travis-ci.org/alexandref93/dynamic-api)
+[![Build Status](https://img.shields.io/travis/alexandref93/dynamic-api/master.svg)](https://travis-ci.org/alexandref93/dynamic-api)
 [![NPM version](https://img.shields.io/npm/v/dynamic-api.svg)](http://badge.fury.io/js/dynamic-api)
 
 **Current version:** 1.0.0
