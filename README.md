@@ -3,6 +3,7 @@ An API to import fragmented files within other.
 
 [![Build Status](https://img.shields.io/travis/alexandref93/dynamic-api/master.svg)](https://travis-ci.org/alexandref93/dynamic-api)
 [![NPM version](https://img.shields.io/npm/v/dynamic-api.svg)](http://badge.fury.io/js/dynamic-api)
+[![NPM License](http://img.shields.io/npm/l/dynamic-api.svg)](https://github.com/alexandref93/dynamic-api/blob/master/LICENSE)
 
 **Node support:** 0.10.x, 0.11.x
 
