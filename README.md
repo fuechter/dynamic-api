@@ -7,7 +7,7 @@ An API to import fragmented files within other.
 **Node support:** 0.10.x, 0.11.x
 
     var dynamic = require('dynamic-api');
-    var contentCompiled = dynamic(fileStream, opt);
+    var contentCompiled = dynamic(path, content, opt);
 
 ## Install
 Install **dynamic-api** with **[npm](https://www.npmjs.org/)**:
