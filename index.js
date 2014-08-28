@@ -4,7 +4,8 @@ var lib_process = require('./lib/process')
 var pathsImport = [];
 var options = {
     paths: [],
-    ignoreRepeated: true
+    ignoreRepeated: true,
+    track: false
 }
 
 module.exports = function(path, contents, opt) {

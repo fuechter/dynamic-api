@@ -28,4 +28,12 @@ describe("test basic", function(){
   it('import no repeated', function(){
     expect(dynamic_api(path_test_index_repeated, content_repeated)).toEqual(content_generate_norepeated);
   });
+
+  var path_test_track = path.join(__dirname, 'test/index_track.js');
+  var content_track = read(path_test_track);
+  var content_generate_track = read(path.join(__dirname, 'test_generate/index_track.js'));
+
+  it('track', function(){
+    expect(dynamic_api(path_test_track, content_track, {track: true})).toEqual(content_generate_track);
+  });
 });

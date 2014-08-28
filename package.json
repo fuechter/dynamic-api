@@ -12,7 +12,7 @@
 	],
 	"version": "1.1.0",
 	"scripts": {
-  	"test": "jasmine-node spec/*.spec.js"
+  	"test": "jasmine-node spec/main.spec.js"
 	},
 	"dependencies": {
 		"underscore": "~1.6.0",

@@ -26,12 +26,14 @@ Return a string of file compiled:
 
     paths = array de path relative
     ignoreRepeated = boolean for ignore file repeated or not, default true
+    track = boolean for track path file or not, default false
 
 Example:
 
     dynamic( path, content, {
         paths: [__dirname + '/directory'],
-        ignoreRepeated: false
+        ignoreRepeated: false,
+        track: true
     });
 
 ## Usage import on files
