@@ -10,7 +10,7 @@
 		"import",
 		"fragment"
 	],
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"scripts": {
   	"test": "jasmine-node spec/main.spec.js"
 	},
