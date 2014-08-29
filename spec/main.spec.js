@@ -36,4 +36,18 @@ describe("test basic", function(){
   it('track', function(){
     expect(dynamic_api(path_test_track, content_track, {track: true})).toEqual(content_generate_track);
   });
+
+  var path_test_debug = path.join(__dirname, 'test/index_debug.js');
+  var content_debug = read(path_test_debug);
+  var content_generate_debug = read(path.join(__dirname, 'test_generate/index_debug.js'));
+
+  it('import debug', function(){
+    expect(dynamic_api(path_test_debug, content_debug, {debug: true})).toEqual(content_generate_debug);
+  });
+
+  var content_generate_nodebug = read(path.join(__dirname, 'test_generate/index_nodebug.js'));
+
+  it('import no debug', function(){
+    expect(dynamic_api(path_test_debug, content_debug)).toEqual(content_generate_nodebug);
+  });
 });

@@ -5,7 +5,8 @@ var pathsImport = [];
 var options = {
     paths: [],
     ignoreRepeated: true,
-    track: false
+    track: false,
+    debug: false
 }
 
 module.exports = function(path, contents, opt) {
